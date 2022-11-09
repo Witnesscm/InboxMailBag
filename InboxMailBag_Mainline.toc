@@ -1,0 +1,11 @@
+## Interface: 100000
+## Title: Inbox Mailbag
+## Author: Jeremy Parsons
+## Version: @project-version@
+## Notes: Turns your inbox into another searchable bag
+## SavedVariables: MAILBAGDB
+## OptionalDeps: Ace3
+
+Libs\Libs.xml
+Localization\Localization.xml
+InboxMailBag_Mainline.xml
