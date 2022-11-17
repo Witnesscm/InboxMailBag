@@ -31,9 +31,9 @@ MB_FRAMENAME = L["FRAMENAME"]
 MB_GROUP_STACKS = L["Group Stacks"]
 
 -- Drawing in localization info
-local WEAPON = GetItemClassInfo (LE_ITEM_CLASS_WEAPON)
-local ARMOR = GetItemClassInfo (LE_ITEM_CLASS_ARMOR)
-local GLYPH = GetItemClassInfo (LE_ITEM_CLASS_GLYPH)
+local WEAPON = GetItemClassInfo(Enum.ItemClass.Weapon)
+local ARMOR = GetItemClassInfo(Enum.ItemClass.Armor)
+local GLYPH = GetItemClassInfo(Enum.ItemClass.Glyph)
 
 local MB_Items = {}
 local MB_Queue = {}
@@ -644,7 +644,7 @@ function InboxMailbagItem_OnClick(self)
 		end
 
 		InboxMailbag_FetchNext()
-		PlaySound(856)
+		PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON)
 	end
 end
 
