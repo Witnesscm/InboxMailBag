@@ -103,12 +103,7 @@ end
 function InboxMailbag_OnLoad(self)
 	-- We have things to do after everything is loaded
 	self:RegisterEvent("PLAYER_LOGIN")
-
-	if IsRetail then
-		self:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
-	else
-		self:RegisterEvent("MAIL_SHOW")
-	end
+	self:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 
 	-- Hook our tab to play nicely with MailFrame tabs
 	hooksecurefunc("MailFrameTab_OnClick", InboxMailbag_Hide) -- Adopted from Sent Mail as a more general solution, and plays well with Sent Mail
@@ -727,7 +722,7 @@ function InboxMailbagTab_OnClick(self)
 	InboxMailbagFrame:Show()
 	PlaySound(SOUNDKIT.IG_SPELLBOOK_OPEN)
 
-	if MailFrame.SetTitle then
+	if IsRetail and MailFrame.SetTitle then
 		MailFrame:SetTitle(MB_FRAMENAME)
 	end
 end
