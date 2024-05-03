@@ -1,4 +1,4 @@
-## Interface: 100107
+## Interface: 100206
 ## Title: Inbox Mailbag
 ## Author: Jeremy Parsons
 ## Version: @project-version@
