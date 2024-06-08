@@ -8,4 +8,4 @@
 
 Libs\Libs.xml
 Localization\Localization.xml
-InboxMailBag_Cata.xml
+InboxMailBag_Classic.xml

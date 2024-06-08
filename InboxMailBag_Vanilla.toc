@@ -8,4 +8,4 @@
 
 Libs\Libs.xml
 Localization\Localization.xml
-InboxMailBag_Wrath.xml
+InboxMailBag_Classic.xml
