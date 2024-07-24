@@ -3,7 +3,7 @@
 ## Author: Jeremy Parsons
 ## Version: @project-version@
 ## Notes: Turns your inbox into another searchable bag
-## IconTexture: 136382
+## IconTexture: 133459
 ## SavedVariables: MAILBAGDB
 ## OptionalDeps: Ace3
 
