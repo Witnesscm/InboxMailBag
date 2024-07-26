@@ -136,10 +136,16 @@ function InboxMailbag_OnLoad(self)
 		end
 	end
 	for i = 1, BAGITEMS_ICON_DISPLAYED do
+		local button = _G["InboxMailbagFrameItem"..i]
 		local texture = self:CreateTexture(nil, "BORDER", "Mailbag-Slot-BG")
-		texture:SetPoint("TOPLEFT", _G["InboxMailbagFrameItem"..i], "TOPLEFT", -2, 2)
-		texture:SetPoint("BOTTOMRIGHT", _G["InboxMailbagFrameItem"..i], "BOTTOMRIGHT", 2, -2)
+		texture:SetPoint("TOPLEFT", button, "TOPLEFT", -2, 2)
+		texture:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", 2, -2)
 		texture:SetAlpha(0.66)
+
+		if IsRetail and not button.ProfessionQualityOverlay then
+			button.ProfessionQualityOverlay = button:CreateTexture(nil, "OVERLAY")
+			button.ProfessionQualityOverlay:SetPoint("TOPLEFT", -3, 2)
+		end
 	end
 
 	if IsRetail then
@@ -482,6 +488,11 @@ function InboxMailbag_Update()
 		end
 
 		if ( itemButton:IsMouseOver() ) then  InboxMailbagItem_OnEnter(itemButton)  end
+
+		if itemButton.ProfessionQualityOverlay then
+			itemButton.ProfessionQualityOverlay:SetAtlas(nil)
+			SetItemCraftingQualityOverlay(itemButton, itemLink)
+		end
 	end
 
 	-- Scrollbar stuff
