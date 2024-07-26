@@ -2,6 +2,12 @@
 --  ... finer detail for how long items may stay in the inbox
 --  ... PUSH_ITEM event based queue operation
 
+-- TWW compatibility
+local GetItemClassInfo = C_Item and C_Item.GetItemClassInfo or GetItemClassInfo
+local GetItemInfo = C_Item and C_Item.GetItemInfo or GetItemInfo
+local GetCoinTextureString = C_CurrencyInfo and C_CurrencyInfo.GetCoinTextureString or GetCoinTextureString
+local GetCoinIcon = C_CurrencyInfo and C_CurrencyInfo.GetCoinIcon or GetCoinIcon
+
 NUM_BAGITEMS_PER_ROW = 6
 NUM_BAGITEMS_ROWS = 7
 
