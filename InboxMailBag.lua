@@ -424,20 +424,20 @@ function InboxMailbag_Update()
 	end
 
 	local bQualityColors = MAILBAGDB["QUALITY_COLORS"]
-	local itemName, itemTexture, count, quality, canUse, _, itemLink
 	for i=1, BAGITEMS_ICON_DISPLAYED do
 		local currentIndex = i + offset
 		local item = MB_Items[currentIndex]
 		local itemButton = _G["InboxMailbagFrameItem"..i]
+		local itemName, itemTexture, count, quality, canUse, _, itemLink
 		if (item) then
 			assert(currentIndex <= #MB_Items)
 			if ( item.hasItem ) then
 				itemName, _, itemTexture, count, quality, canUse = GetInboxItem(item.links[1].mailID, item.links[1].attachment)
 				itemLink = InboxMailbag_GetInboxItemID(item.links[1].mailID, item.links[1].attachment, itemName)
-				if (bQualityColors) then 
+				if (bQualityColors) then
 					-- GetInboxItem always returns -1 for quality. Yank from linkstring
 					-- GetInboxItemLink may fail if called quickly after starting Warcraft.
-					if (itemLink) then 
+					if (itemLink) then
 						_, _, quality = GetItemInfo(itemLink)
 					else
 						quality = nil
