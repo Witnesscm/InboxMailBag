@@ -307,12 +307,12 @@ function InboxMailbag_Consolidate()
 
 		if (itemCount and CODAmount == 0) then
 			for n=1,ATTACHMENTS_MAX_RECEIVE do
-				local name, _, itemTexture, count, quality, canUse = GetInboxItem(i, n)
+				local name, itemID, itemTexture, count, quality, canUse = GetInboxItem(i, n)
 
-				if (name) then
+				if (itemID) then
 					local link = { ["mailID"] = i, ["attachment"] = n }
-					if ( bGroupStacks and indexes[name] ) then
-						local item = MB_Items[ indexes[name] ]
+					if ( bGroupStacks and indexes[itemID] ) then
+						local item = MB_Items[ indexes[itemID] ]
 						item.count = item.count + count
 						insert(item.links, link)
 						if ( daysLeft < item.daysLeft ) then
@@ -321,7 +321,7 @@ function InboxMailbag_Consolidate()
 					else
 						counter = counter + 1
 						MB_Items:SetItem( counter, count, itemTexture, daysLeft, link )
-						indexes[name] = counter
+						indexes[itemID] = counter
 					end
 				end
 			end
@@ -612,7 +612,7 @@ function InboxMailbagItem_OnEnter(self, index)
 						if ( invoiceType == "seller" ) then
 							sender = subject
 						end
-					end					
+					end
 				end
 
 				-- Format expiration time
