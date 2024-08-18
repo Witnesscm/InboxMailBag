@@ -159,7 +159,7 @@ function InboxMailbag_OnLoad(self)
 
 		-- properly align Blizzard's default BattlePetTooltip
 		BattlePetTooltip.Name:ClearAllPoints()
-		BattlePetTooltip.Name:SetPoint("TOPLEFT", 10, -10)		
+		BattlePetTooltip.Name:SetPoint("TOPLEFT", 10, -10)
 	end
 end
 
@@ -564,11 +564,12 @@ function InboxMailbagItem_OnEnter(self, index)
 		local tip = GameTooltip
 
 		if ( item.hasItem ) then
-			local hasCooldown, speciesID, level, breedQuality, maxHealth, power, speed, name = GameTooltip:SetInboxItem( links[1].mailID, links[1].attachment )
+			GameTooltip:SetInboxItem( links[1].mailID, links[1].attachment )
 
 			if BattlePetTooltip then
-				if ( speciesID and speciesID > 0 ) then
-					BattlePetToolTip_Show(speciesID, level, breedQuality, maxHealth, power, speed, name)
+				local data = C_TooltipInfo.GetInboxItem(links[1].mailID, links[1].attachment)
+				if ( data and data.battlePetSpeciesID and data.battlePetSpeciesID > 0 ) then
+					BattlePetToolTip_Show(data.battlePetSpeciesID, data.battlePetLevel, data.battlePetBreedQuality, data.battlePetMaxHealth, data.battlePetPower, data.battlePetSpeed, data.battlePetName)
 					tip = battletip
 					tip:ClearLines()
 				else
