@@ -308,11 +308,11 @@ function InboxMailbag_Consolidate()
 		if (itemCount and CODAmount == 0) then
 			for n=1,ATTACHMENTS_MAX_RECEIVE do
 				local name, itemID, itemTexture, count, quality, canUse = GetInboxItem(i, n)
-
-				if (itemID) then
+				if name and itemID then
+					local itemKey = name..":"..itemID
 					local link = { ["mailID"] = i, ["attachment"] = n }
-					if ( bGroupStacks and indexes[itemID] ) then
-						local item = MB_Items[ indexes[itemID] ]
+					if ( bGroupStacks and indexes[itemKey] ) then
+						local item = MB_Items[ indexes[itemKey] ]
 						item.count = item.count + count
 						insert(item.links, link)
 						if ( daysLeft < item.daysLeft ) then
@@ -321,7 +321,7 @@ function InboxMailbag_Consolidate()
 					else
 						counter = counter + 1
 						MB_Items:SetItem( counter, count, itemTexture, daysLeft, link )
-						indexes[itemID] = counter
+						indexes[itemKey] = counter
 					end
 				end
 			end
@@ -434,15 +434,6 @@ function InboxMailbag_Update()
 			if ( item.hasItem ) then
 				itemName, _, itemTexture, count, quality, canUse = GetInboxItem(item.links[1].mailID, item.links[1].attachment)
 				itemLink = InboxMailbag_GetInboxItemID(item.links[1].mailID, item.links[1].attachment, itemName)
-				if (bQualityColors) then
-					-- GetInboxItem always returns -1 for quality. Yank from linkstring
-					-- GetInboxItemLink may fail if called quickly after starting Warcraft.
-					if (itemLink) then
-						_, _, quality = GetItemInfo(itemLink)
-					else
-						quality = nil
-					end
-				end
 
 				SetItemButtonTexture(itemButton, itemTexture)
 				SetItemButtonCount(itemButton, item.count)
