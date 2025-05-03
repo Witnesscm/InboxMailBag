@@ -148,7 +148,7 @@ function InboxMailbag_OnLoad(self)
 		end
 	end
 
-	if IsRetail then
+	if BattlePetTooltip then
 		-- From sample code at http://us.battle.net/wow/en/forum/topic/7415465636
 		-- thank you Ro @ Underhill
 		--local BattlePetTooltip = BattlePetTooltip -- not really needed
@@ -733,6 +733,7 @@ function InboxMailbagTab_OnClick(self)
 
 	if IsRetail and MailFrame.SetTitle then
 		MailFrame:SetTitle(MB_FRAMENAME)
+		InboxMailbagFrameTitleText:Hide()
 	end
 end
 

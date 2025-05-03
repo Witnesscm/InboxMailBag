@@ -56,6 +56,14 @@
 					</Anchors>
 				</FontString>
 			</Layer>
+			<Layer level="ARTWORK">
+				<FontString name="$parentTitleText" inherits="GameFontNormal" text="MB_FRAMENAME">
+					<Size x="224" y="14"/>
+					<Anchors>
+						<Anchor point="CENTER" x="0" y="245"/>
+					</Anchors>
+				</FontString>
+			</Layer>
 		</Layers>
 		<Frames>
 			<EditBox name="InboxMailbagFrameItemSearchBox" inherits="BagSearchBoxTemplate" letters="15">
