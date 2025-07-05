@@ -555,12 +555,17 @@ function InboxMailbagItem_OnEnter(self, index)
 		local tip = GameTooltip
 
 		if ( item.hasItem ) then
-			GameTooltip:SetInboxItem( links[1].mailID, links[1].attachment )
+			local _, speciesID, level, breedQuality, maxHealth, power, speed, name = GameTooltip:SetInboxItem(links[1].mailID, links[1].attachment)
 
 			if BattlePetTooltip then
-				local data = C_TooltipInfo.GetInboxItem(links[1].mailID, links[1].attachment)
-				if ( data and data.battlePetSpeciesID and data.battlePetSpeciesID > 0 ) then
-					BattlePetToolTip_Show(data.battlePetSpeciesID, data.battlePetLevel, data.battlePetBreedQuality, data.battlePetMaxHealth, data.battlePetPower, data.battlePetSpeed, data.battlePetName)
+				if C_TooltipInfo and C_TooltipInfo.GetInboxItem then
+					local data = C_TooltipInfo.GetInboxItem(links[1].mailID, links[1].attachment)
+					if data and data.battlePetSpeciesID then
+						speciesID, level, breedQuality, maxHealth, power, speed, name = data.battlePetSpeciesID, data.battlePetLevel, data.battlePetBreedQuality, data.battlePetMaxHealth, data.battlePetPower, data.battlePetSpeed, data.battlePetName
+					end
+				end
+				if ( speciesID and speciesID > 0 ) then
+					BattlePetToolTip_Show(speciesID, level, breedQuality, maxHealth, power, speed, name)
 					tip = battletip
 					tip:ClearLines()
 				else
