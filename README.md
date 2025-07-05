@@ -1,9 +1,9 @@
 # Inbox Mailbag - Fan Update
 Inbox Mailbag lets you treat your inbox as yet another bag that you can take things from. It will collate items into singular stacks and supports search hilighting to help you find specific items within your inbox.
 
-Support **The War Within** (11.1.5) , **Cataclysm Classic** (4.4.2) , **WotLK Classic** (3.4.4) and **Classic Era** (1.15.7) 
+Support **The War Within** (11.1.7) , **Mists of Pandaria Classic** (5.5.0) , **WotLK Classic** (3.4.4) and **Classic Era** (1.15.7) 
 
-支持 **地心之战** (11.1.5) , **大地的裂变** (4.4.2) , **巫妖王之怒** (3.4.4) 和 **经典旧世** (1.15.7) 
+支持 **地心之战** (11.1.7) , **熊猫人之谜** (5.5.0) , **巫妖王之怒** (3.4.4) 和 **经典旧世** (1.15.7) 
 
 The copyright belongs to [original author](https://www.curseforge.com/wow/addons/inbox-mailbag).
 
