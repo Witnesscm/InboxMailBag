@@ -1,4 +1,4 @@
-## Interface: 110200, 110107, 50500, 30404, 11507
+## Interface: 120000, 110207, 110205, 50503, 50502, 38000, 11508
 ## Title: Inbox Mailbag
 ## Author: Jeremy Parsons
 ## Version: @project-version@
