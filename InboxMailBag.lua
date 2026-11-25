@@ -30,6 +30,7 @@ local remove = table.remove
 local L = LibStub("AceLocale-3.0"):GetLocale("InboxMailbag", true)
 
 local IsRetail = _G.WOW_PROJECT_ID == _G.WOW_PROJECT_MAINLINE
+local IsForever = _G.WOW_PROJECT_ID == _G.WOW_PROJECT_CAMELOT
 
 -- Export localization into namespace for XML localization
 MB_BAGNAME = L["BAGNAME"]
@@ -736,7 +737,7 @@ function InboxMailbagTab_OnClick(self)
 	InboxMailbagFrame:Show()
 	PlaySound(SOUNDKIT.IG_SPELLBOOK_OPEN)
 
-	if IsRetail and MailFrame.SetTitle then
+	if (IsRetail or IsForever) and MailFrame.SetTitle then
 		MailFrame:SetTitle(MB_FRAMENAME)
 		InboxMailbagFrameTitleText:Hide()
 	end
